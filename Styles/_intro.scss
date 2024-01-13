@@ -54,6 +54,15 @@ nav {
   transform-origin: top;
 }
 
+.me {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  height: 100%;
+  z-index: -1;
+  transform-origin: top;
+}
+
 .intro-social {
   margin-top: 4rem;
   a {
