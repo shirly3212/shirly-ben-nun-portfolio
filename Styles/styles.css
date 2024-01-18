@@ -136,6 +136,15 @@ nav ul {
   flex: 1 1 40rem;
 }
 
+.me {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%; /* Adjust the width as needed */
+  z-index: 1;
+}
+
+
 /*animation*/
 #PLANT-R {
   animation: PLANT-R 1.8s ease infinite alternate;
