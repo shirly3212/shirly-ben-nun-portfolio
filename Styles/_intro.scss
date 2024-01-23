@@ -20,6 +20,12 @@ nav {
     flex: 1 1 40rem;
   }
 }
+.me {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
 
 .intro {
   min-height: 90vh;
@@ -53,11 +59,6 @@ nav {
   z-index: -1;
   transform-origin: top;
 }
-.me {
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
 
 
 .intro-social {
