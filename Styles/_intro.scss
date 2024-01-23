@@ -43,15 +43,13 @@ nav {
     padding-top: 2rem;
     color: $gray-text;
   }
-  .me {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 10%; /* Adjust the width as needed */
-  z-index: 1;
- }
 }
 
+.me {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
 
 
 .splash {
