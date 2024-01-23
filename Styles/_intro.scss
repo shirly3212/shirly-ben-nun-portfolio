@@ -45,13 +45,6 @@ nav {
   }
 }
 
-.me {
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-
-
 .splash {
   position: absolute;
   top: 0%;
@@ -60,7 +53,11 @@ nav {
   z-index: -1;
   transform-origin: top;
 }
-
+.me {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
 
 
 .intro-social {
