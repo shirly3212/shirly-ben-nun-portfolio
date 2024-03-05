@@ -8,6 +8,8 @@ footer {
   align-items: center;
   list-style: none;
 
+  h4 { color: white;}
+
   ul {
     @include flex(space-around, center, row);
   }
