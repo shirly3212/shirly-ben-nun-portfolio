@@ -350,13 +350,14 @@ footer ul {
   justify-content: space-around;
   align-items: center;
   flex-direction: row;
-  padding: 0; /* Remove list padding */
-  margin: 0; /* Remove list margin */
+  padding: 0; 
+  margin: 0;
+  list-style: none; 
 }
 
 footer ul li {
-  list-style: none; /* Remove list-style */
-  padding: 0 1rem; /* Optional: Add padding for spacing */
+  list-style: none; 
+  padding: 0 1rem; 
 }
 
 /* Media Queries */
@@ -423,12 +424,12 @@ footer ul li {
   }
   
   .projects {
-    flex-direction: column; /* Align project images in a column */
+    flex-direction: column; 
   }
   
   .Travelly, .Photographer, .People-Counter {
-    width: 100%; /* Full width in mobile view */
-    margin-bottom: 2rem; /* Space between items */
+    width: 100%; 
+    margin-bottom: 2rem; 
   }
   
   .Travelly img, .Photographer img, .People-Counter img {
