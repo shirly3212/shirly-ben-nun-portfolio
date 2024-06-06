@@ -73,7 +73,7 @@ nav ul {
   align-items: center;
   flex-wrap: wrap;
   min-height: 90vh;
-  width: 80%; /* Set to 80% */
+  width: 90%; /* Reverted to original width */
   margin: auto;
 }
 
@@ -350,7 +350,12 @@ footer ul {
   justify-content: space-around;
   align-items: center;
   flex-direction: row;
-  color: white;
+  padding: 0; /* Remove list padding */
+}
+
+footer ul li {
+  list-style: none; /* Remove list-style */
+  padding: 0 1rem; /* Optional: Add padding for spacing */
 }
 
 /* Media Queries */
