@@ -351,6 +351,7 @@ footer ul {
   align-items: center;
   flex-direction: row;
   padding: 0; /* Remove list padding */
+  margin: 0; /* Remove list margin */
 }
 
 footer ul li {
@@ -430,7 +431,7 @@ footer ul li {
     margin-bottom: 2rem; /* Space between items */
   }
   
-  .Travelly img, .Photographer img {
+  .Travelly img, .Photographer img, .People-Counter img {
     width: 100%;
     height: auto;
   }
