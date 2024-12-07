@@ -29,12 +29,6 @@ h4, h5 {
 ul {
   list-style: none;
 }
-  
-footer ul {
-  list-style: none !important;
-}
-
-}
 
 a {
   text-decoration: none;
