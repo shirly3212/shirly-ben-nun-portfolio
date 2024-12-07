@@ -6,11 +6,14 @@ footer {
   @include flex(space-between, center, row);
   align-items: flex-start;
   align-items: center;
-  list-style: none;
+  list-style: none !important;
+ 
 
   h4 { color: white;}
 
   ul {
     @include flex(space-around, center, row);
+list-style: none !important;
+
   }
 }
