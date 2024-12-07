@@ -6,14 +6,15 @@ footer {
   @include flex(space-between, center, row);
   align-items: flex-start;
   align-items: center;
-  list-style: none !important;
- 
 
-  h4 { color: white;}
+  h4 { 
+    color: white;
+  }
 
   ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
     @include flex(space-around, center, row);
-list-style: none !important;
-
   }
 }
