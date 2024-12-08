@@ -13,7 +13,8 @@
 
 .Travelly,
 .Photographer
-.People-Counter{
+.People-Counter
+.links-container{
   flex: 1 1 calc(20% - 1rem);
   @include flex(center, center, column);
 }
