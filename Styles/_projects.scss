@@ -2,19 +2,111 @@
   width: 90%;
   margin: auto;
   min-height: 90vh;
-  @include flex(space-between, center, row);
-  text-align: center;
+  display: flex; /* Replaced @include flex with equivalent CSS */
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
   flex-wrap: wrap;
-  h2 {
+  text-align: center;
+   h2 {
     margin: 5rem;
     padding: 2rem 5rem;
   }
 }
 
 .Travelly,
-.Photographer
-.People-Counter
-.link-item{
-  flex: 1 1 calc(20% - 1rem);
-  @include flex(center, center, column);
+.Photographer,
+.People-Counter,
+.link-item {
+  flex: 1 1 calc(50% - 20px); /* Two items per row with spacing */
+  margin-bottom: 20px;
+  display: flex; /* Center items within their containers */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Travelly img,
+.Photographer img,
+.People-Counter img,
+.link-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.Travelly img:hover,
+.Photographer img:hover,
+.People-Counter img:hover,
+.link-item img:hover {
+  transform: scale(1.05);
+}
+
+/* Footer Styling */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Ensure proper alignment on smaller screens */
+  background: linear-gradient(rgba(255, 102, 0, 0.44), rgba(255, 0, 123, 0.55));
+  color: white;
+  padding: 10px 5%;
+  min-height: 7vh;
+}
+
+footer h4 {
+  flex: 1 1 auto;
+}
+
+footer ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  flex: 1 1 auto;
+}
+
+footer ul li {
+  padding: 0 1rem;
+}
+
+footer ul li a img {
+  width: 24px;
+  height: auto;
+}
+
+/* Media Queries */
+@media screen and (max-width: 754px) {
+  .projects {
+    flex-direction: column; /* Stack items vertically */
+  }
+
+  .Travelly,
+  .Photographer,
+  .People-Counter,
+  .link-item {
+    flex: 1 1 100%; /* One item per row for mobile */
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  footer h4 {
+    margin-bottom: 10px;
+  }
+
+  footer ul {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  footer ul li {
+    margin-bottom: 10px;
+  }
 }
