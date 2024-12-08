@@ -281,7 +281,7 @@ nav ul {
   padding: 2rem 5rem;
 }
 
-.Travelly, .Photographer, .People-Counter {
+.Travelly, .Photographer, .People-Counter, .link-item {
   flex: 1 1 calc(20% - 1rem);
   display: flex;
   justify-content: center;
@@ -427,12 +427,12 @@ footer ul li {
     flex-direction: column; 
   }
   
-  .Travelly, .Photographer, .People-Counter {
+  .Travelly, .Photographer, .People-Counter, link-item. {
     width: 100%; 
     margin-bottom: 2rem; 
   }
   
-  .Travelly img, .Photographer img, .People-Counter img {
+  .Travelly img, .Photographer img, .People-Counter img, .link-item {
     width: 100%;
     height: auto;
   }
