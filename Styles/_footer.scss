@@ -11,6 +11,7 @@ footer {
   h4 { color: white;}
 
   ul {
-    @include flex(space-around, center, row);
+    @include flex(space-around, center, row); 
+    list-style: none; 
   }
 }
