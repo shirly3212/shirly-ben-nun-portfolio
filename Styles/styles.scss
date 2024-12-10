@@ -13,6 +13,11 @@ $gray-text: #2c2c2c;
   align-items: $align;
   flex-direction: $direction;
 }
+footer ul li {
+  list-style: none; 
+  padding: 0 1rem; 
+}
+
 
 @import "global";
 @import "intro";
