@@ -270,6 +270,12 @@ nav ul {
   }
 }
 
+
+.projects h2 {
+  margin: 5rem;
+  padding: 2rem 5rem;
+}
+
 .projects {
   display: flex;
   justify-content: center;
@@ -279,15 +285,12 @@ nav ul {
   width: 90%;
   margin: auto;
   min-height: 90vh;
-}
-
-.projects h2 {
-  margin: 5rem;
-  padding: 2rem 5rem;
+  gap: 2rem; /* Add some space between project items */
 }
 
 .Travelly, .Photographer, .People-Counter, .link-item {
-  flex: 1 1 calc(20% - 1rem);
+  flex: 0 1 calc(25% - 2rem); /* Adjust width to fit 4 items per row */
+  max-width: 300px; /* Optional: set a max width */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -375,6 +378,18 @@ footer ul li {
   .splash {
     display: none;
   }
+
+  @media screen and (max-width: 754px) {
+  .projects {
+    flex-direction: column; 
+  }
+  
+  .Travelly, .Photographer, .People-Counter, .link-item {
+    width: 100%; 
+    max-width: none;
+    margin-bottom: 2rem; 
+  }
+}
   
   svg {
     width: 110%;
