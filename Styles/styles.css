@@ -12,7 +12,8 @@ html {
 body {
   font-family: "Manrope", sans-serif;
 }
-footer ul li {
+
+ul li {
   list-style: none; 
   padding: 0 1rem; 
 }
