@@ -68,11 +68,13 @@ footer ul {
 
 footer ul li {
   padding: 0 1rem;
+list-style: none;
 }
 
 footer ul li a img {
   width: 24px;
   height: auto;
+  list-style: none;
 }
 
 /* Media Queries */
@@ -100,6 +102,7 @@ footer ul li a img {
   footer ul {
     flex-direction: column;
     margin-top: 10px;
+list-style: none;
   }
 
   footer ul li {
