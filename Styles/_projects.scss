@@ -3,8 +3,9 @@
   margin: auto;
   min-height: 90vh;
   display: flex;
-  flex-wrap: wrap; /* Enables wrapping to multiple rows */
-  justify-content: space-between;
+  flex-wrap: wrap; /* Ensures wrapping to multiple rows */
+  justify-content: space-around; /* Centers items and maintains spacing */
+  gap: 20px; /* Adds consistent spacing between items */
   text-align: center;
 }
 
@@ -12,8 +13,7 @@
 .Photographer,
 .People-Counter,
 .link-item {
-  flex: 1 1 calc(50% - 20px); /* Two items per row with spacing */
-  margin-bottom: 20px; /* Adds spacing between rows */
+  flex: 1 1 calc(45%); /* Ensures two items per row with some spacing */
   display: flex; /* Centers content within each item */
   justify-content: center;
   align-items: center;
@@ -26,7 +26,7 @@
 .People-Counter img,
 .link-item img {
   width: 100%;
-  max-width: 300px; /* Optional: Sets a maximum width for the images */
+  max-width: 300px; /* Optional: Limit the maximum size of the images */
   height: auto;
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
@@ -63,24 +63,23 @@ footer ul {
   padding: 0;
   margin: 0;
   list-style: none;
-  flex: 1 1 auto;
 }
 
 footer ul li {
   padding: 0 1rem;
-list-style: none;
+  list-style: none;
 }
 
 footer ul li a img {
   width: 24px;
   height: auto;
-  list-style: none;
 }
 
 /* Media Queries */
 @media screen and (max-width: 754px) {
   .projects {
     flex-direction: column; /* Stack items vertically */
+    gap: 10px; /* Adjust gap for smaller screens */
   }
 
   .Travelly,
@@ -102,7 +101,7 @@ footer ul li a img {
   footer ul {
     flex-direction: column;
     margin-top: 10px;
-list-style: none;
+    list-style: none;
   }
 
   footer ul li {
