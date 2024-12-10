@@ -286,7 +286,7 @@ nav ul {
   padding: 2rem 5rem;
 }
 
-.Travelly, .Photographer, .People-Counter {
+.Travelly, .Photographer, .People-Counter, .link-item {
   flex: 1 1 calc(20% - 1rem);
   display: flex;
   justify-content: center;
@@ -348,6 +348,7 @@ footer {
   color: white;
   min-height: 7vh;
   padding: 0 5%;
+  list-style: none; 
 }
 
 footer ul {
