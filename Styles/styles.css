@@ -270,35 +270,31 @@ nav ul {
   }
 }
 
-
 .projects {
-  display: grid; /* Use grid for precise layout control */
-  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  display: grid; /* Use grid layout for precise control */
+  grid-template-columns: repeat(4, 1fr); /* Four columns for the first row */
+  grid-auto-rows: auto; /* Rows adjust based on content height */
   gap: 2rem; /* Space between items */
   text-align: center;
   width: 90%;
   margin: auto;
 }
 
-.projects div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 300px; /* Set a maximum width for consistency */
-  width: 100%;
+.projects div:nth-child(5) {
+  grid-column: span 4; /* Place the 5th item in a new row spanning the entire row */
 }
 
 .projects img {
   width: 100%;
+  max-width: 300px; /* Ensure images are consistently sized */
   height: auto;
   border-radius: 10px;
-  object-fit: cover; /* Ensures images fit their containers */
+  object-fit: cover; /* Ensures images maintain aspect ratio */
   transition: transform 0.3s ease-in-out;
 }
 
 .projects img:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Subtle zoom effect on hover */
 }
 
 @media screen and (max-width: 754px) {
