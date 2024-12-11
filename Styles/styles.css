@@ -271,11 +271,6 @@ nav ul {
 }
 
 
-.projects h2 {
-  margin: 5rem;
-  padding: 2rem 5rem;
-}
-
 .projects {
   display: grid; /* Use grid for precise layout control */
   grid-template-columns: repeat(2, 1fr); /* Two columns */
