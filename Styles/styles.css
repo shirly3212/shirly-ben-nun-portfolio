@@ -277,25 +277,41 @@ nav ul {
 }
 
 .projects {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  display: grid; /* Use grid for precise layout control */
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 2rem; /* Space between items */
   text-align: center;
   width: 90%;
   margin: auto;
-  min-height: 90vh;
-  gap: 2rem; /* Add some space between project items */
 }
 
-.Travelly, .Photographer, .People-Counter, .link-item {
-  flex: 0 1 calc(25% - 2rem); /* Adjust width to fit 4 items per row */
-  max-width: 300px; /* Optional: set a max width */
+.projects div {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 300px; /* Set a maximum width for consistency */
+  width: 100%;
 }
+
+.projects img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover; /* Ensures images fit their containers */
+  transition: transform 0.3s ease-in-out;
+}
+
+.projects img:hover {
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 754px) {
+  .projects {
+    grid-template-columns: 1fr; /* Stack items vertically */
+  }
+}
+
 
 .form-section {
   display: flex;
@@ -378,18 +394,6 @@ footer ul li {
   .splash {
     display: none;
   }
-
-  @media screen and (max-width: 754px) {
-  .projects {
-    flex-direction: column; 
-  }
-  
-  .Travelly, .Photographer, .People-Counter, .link-item {
-    width: 100%; 
-    max-width: none;
-    margin-bottom: 2rem; 
-  }
-}
   
   svg {
     width: 110%;
