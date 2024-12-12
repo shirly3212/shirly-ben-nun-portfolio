@@ -4,6 +4,7 @@
   min-height: 90vh;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: repeat(2, 1fr);
   gap: 20px;
 }
 
@@ -64,6 +65,7 @@ footer {
 @media screen and (max-width: 754px) {
   .projects {
     grid-template-columns: 1fr; /* Stack items vertically for smaller screens */
+    grid-template-rows: auto;
     gap: 10px;
   }
 
