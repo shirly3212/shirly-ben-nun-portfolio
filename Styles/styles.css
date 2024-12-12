@@ -272,7 +272,8 @@ nav ul {
 
 
 .projects {
-  padding-bottom: 5rem;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
   display: grid; /* Enables grid layout */
   grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
   grid-auto-rows: auto; /* Automatically adjust row height */
