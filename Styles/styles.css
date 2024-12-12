@@ -272,7 +272,7 @@ nav ul {
 
 .projects {
   display: grid; /* Use grid layout for precise control */
-  grid-template-columns: repeat(2, 1fr); /* Two columns for all images */
+  grid-template-columns: repeat(3, 1fr); /* Two columns for all images */
   gap: 2rem; /* Space between items */
   text-align: center;
   width: 90%;
