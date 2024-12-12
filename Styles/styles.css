@@ -273,7 +273,7 @@ nav ul {
   display: grid; /* Enables grid layout */
   grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
   grid-auto-rows: auto; /* Automatically adjust row height */
-  gap: 2rem; /* Space between grid items */
+  gap: 3rem; /* Space between grid items */
   text-align: center;
   width: 90%;
   margin: auto;
@@ -281,7 +281,7 @@ nav ul {
 
 .projects img {
   width: 100%;
-  max-width: 300px; /* Ensure consistent image sizing */
+  max-width: 400px; /* Ensure consistent image sizing */
   height: auto;
   border-radius: 10px;
   object-fit: cover; /* Maintains aspect ratio */
