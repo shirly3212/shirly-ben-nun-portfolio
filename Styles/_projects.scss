@@ -2,37 +2,40 @@
   width: 90%;
   margin: auto;
   min-height: 90vh;
-  display: grid;
-  grid-template-rows: repeat(2, 1fr); // Two rows with equal height
-  grid-template-columns: repeat(2, 1fr); // Two columns
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
-  text-align: center;
 }
 
-.Travelly,
-.Photographer,
-.People-Counter,
-.link-item {
+.project-item {
+  flex: 0 0 calc(20% - 20px); // 5 items per row
+  max-width: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   box-sizing: border-box;
+
+  &:last-child,
+  &:nth-last-child(2),
+  &:nth-last-child(3),
+  &:nth-last-child(4) {
+    flex: 0 0 calc(25% - 20px); // 4 items per row for the last 4
+  }
 }
 
-
-
-.Travelly img,
-.Photographer img,
-.People-Counter img,
-.link-item img {
+.project-item img {
   width: 100%;
   max-width: 300px;
   height: auto;
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
-}
 
+  &:hover {
+    transform: scale(1.05);
+  }
+}
 .Travelly img:hover,
 .Photographer img:hover,
 .People-Counter img:hover,
