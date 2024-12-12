@@ -2,24 +2,9 @@
   width: 90%;
   margin: auto;
   min-height: 90vh;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-}
-
-.project-item {
-  flex: 0 0 calc(25% - 20px); // 4 items per row in the first line
-  max-width: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  box-sizing: border-box;
-
-  &:nth-child(n+5) {
-    flex: 0 0 calc(20% - 20px); // 5 items per row in the second line
-  }
 }
 
 .project-item img {
