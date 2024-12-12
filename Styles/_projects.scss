@@ -3,8 +3,8 @@
   margin: auto;
   min-height: 90vh;
   display: grid;
-  grid-template-rows: repeat(2, auto); // Two rows with auto height
-  grid-template-columns: repeat(4, 1fr); // 4 items per row to distribute evenly
+  grid-template-rows: repeat(2, 1fr); // Two rows with equal height
+  grid-template-columns: repeat(2, 1fr); // Two columns
   gap: 20px;
   text-align: center;
 }
@@ -19,6 +19,7 @@
   flex-direction: column;
   box-sizing: border-box;
 }
+
 
 
 .Travelly img,
