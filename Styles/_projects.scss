@@ -2,21 +2,26 @@
   width: 90%;
   margin: auto;
   min-height: 90vh;
-  display: grid; /* Use grid for precise control over layout */
-  grid-template-columns: repeat(2, 1fr); /* Two columns */
-  gap: 20px; /* Spacing between items */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Five columns in the first row */
+  gap: 20px;
   text-align: center;
+}
+
+.projects > div:nth-child(n+6) {
+  grid-column: span 1; /* Items in the second row span one column */
+  grid-row: 2; /* Place these items explicitly in the second row */
 }
 
 .Travelly,
 .Photographer,
 .People-Counter,
 .link-item {
-  display: flex; /* Center content within each grid item */
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  box-sizing: border-box; /* Ensures padding and border don't affect width */
+  box-sizing: border-box;
 }
 
 .Travelly img,
@@ -24,7 +29,7 @@
 .People-Counter img,
 .link-item img {
   width: 100%;
-  max-width: 300px; /* Optional: Limit the maximum size of the images */
+  max-width: 300px;
   height: auto;
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
@@ -37,7 +42,6 @@
   transform: scale(1.05);
 }
 
-/* Footer Styling */
 footer {
   display: flex;
   justify-content: space-between;
@@ -73,11 +77,10 @@ footer ul li a img {
   height: auto;
 }
 
-/* Media Queries */
 @media screen and (max-width: 754px) {
   .projects {
-    grid-template-columns: 1fr; /* Stack items vertically */
-    gap: 10px; /* Adjust spacing for smaller screens */
+    grid-template-columns: 1fr; /* Stack items vertically for smaller screens */
+    gap: 10px;
   }
 
   footer {
