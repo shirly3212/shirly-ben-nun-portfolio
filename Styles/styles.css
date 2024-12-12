@@ -269,11 +269,11 @@ nav ul {
     transform: translateX(0);
   }
 }
-
 .projects {
-  display: grid; /* Use grid layout for precise control */
-  grid-template-columns: repeat(3, 1fr); /* Two columns for all images */
-  gap: 2rem; /* Space between items */
+  display: grid; /* Enables grid layout */
+  grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
+  grid-auto-rows: auto; /* Automatically adjust row height */
+  gap: 2rem; /* Space between grid items */
   text-align: center;
   width: 90%;
   margin: auto;
@@ -281,21 +281,21 @@ nav ul {
 
 .projects img {
   width: 100%;
-  max-width: 300px; /* Ensure images are consistently sized */
+  max-width: 300px; /* Ensure consistent image sizing */
   height: auto;
   border-radius: 10px;
-  object-fit: cover; /* Ensures images maintain aspect ratio */
+  object-fit: cover; /* Maintains aspect ratio */
   transition: transform 0.3s ease-in-out;
 }
 
 .projects img:hover {
-  transform: scale(1.05); /* Subtle zoom effect on hover */
+  transform: scale(1.05); /* Zoom effect on hover */
 }
 
-/* Media Query for Smaller Screens */
+/* Responsive Design for Smaller Screens */
 @media screen and (max-width: 754px) {
   .projects {
-    grid-template-columns: 1fr; /* Stack items vertically for small screens */
+    grid-template-columns: 1fr; /* Stack items vertically for smaller screens */
   }
 }
 
