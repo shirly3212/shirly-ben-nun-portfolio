@@ -1,23 +1,38 @@
 .projects {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columns for the first row */
-    gap: 20px; /* Space between items */
+    grid-template-columns: repeat(5, 1fr); /* First row with 5 columns */
+    gap: 20px; /* Spacing between items */
 }
 
 .projects .project-item:nth-child(6) {
-    grid-column-start: 1;
-    grid-column-end: 6; /* Move the 6th item to the start of the second row */
+    grid-column-start: 1; /* Start new row at the beginning */
 }
 
-.projects .project-item:nth-child(n+6) {
-    grid-template-columns: repeat(4, 1fr); /* Adjust items for the second row */
+.projects {
+    grid-template-rows: auto auto; /* Ensure two rows */
 }
 
+/* Ensure images are responsive */
 .projects img {
     width: 100%;
     height: auto;
     object-fit: cover;
 }
+
+/* For smaller screens (responsive design) */
+@media (max-width: 768px) {
+    .projects {
+        grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns on smaller screens */
+    }
+}
+
+/* For smaller screens (responsive design) */
+@media (max-width: 768px) {
+    .projects {
+        grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns on smaller screens */
+    }
+}
+
 
 @media (max-width: 768px) {
     .projects {
