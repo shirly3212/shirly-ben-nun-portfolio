@@ -269,7 +269,9 @@ nav ul {
     transform: translateX(0);
   }
 }
+
 .projects {
+  padding-bottom: 5rem;
   display: grid; /* Enables grid layout */
   grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
   grid-auto-rows: auto; /* Automatically adjust row height */
