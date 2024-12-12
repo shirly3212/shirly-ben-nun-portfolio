@@ -272,16 +272,11 @@ nav ul {
 
 .projects {
   display: grid; /* Use grid layout for precise control */
-  grid-template-columns: repeat(4, 1fr); /* Four columns for the first row */
-  grid-auto-rows: auto; /* Rows adjust based on content height */
+  grid-template-columns: repeat(2, 1fr); /* Two columns for all images */
   gap: 2rem; /* Space between items */
   text-align: center;
   width: 90%;
   margin: auto;
-}
-
-.projects div:nth-child(5) {
-  grid-column: span 4; /* Place the 5th item in a new row spanning the entire row */
 }
 
 .projects img {
@@ -297,9 +292,10 @@ nav ul {
   transform: scale(1.05); /* Subtle zoom effect on hover */
 }
 
+/* Media Query for Smaller Screens */
 @media screen and (max-width: 754px) {
   .projects {
-    grid-template-columns: 1fr; /* Stack items vertically */
+    grid-template-columns: 1fr; /* Stack items vertically for small screens */
   }
 }
 
