@@ -3,14 +3,14 @@
   margin: auto;
   min-height: 90vh;
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Five columns in the first row */
+  grid-template-rows: repeat(2, 1fr); /* Two rows */
+  grid-template-columns: repeat(5, 1fr); /* Five items per row */
   gap: 20px;
   text-align: center;
 }
 
-.projects > div:nth-child(n+6) {
-  grid-column: span 1; /* Items in the second row span one column */
-  grid-row: 2; /* Place these items explicitly in the second row */
+.projects > div {
+  grid-row: span 1; /* Ensure all items take up one row */
 }
 
 .Travelly,
