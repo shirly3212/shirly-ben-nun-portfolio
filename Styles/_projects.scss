@@ -1,19 +1,30 @@
 .projects {
-  width: 90%;
-  margin: auto;
-  min-height: 90vh;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-template-rows: repeat(2, 1fr);
-  gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns for the first row */
+    gap: 20px; /* Space between items */
 }
 
-.project-item img {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  border-radius: 10px;
-  transition: transform 0.3s ease-in-out;
+.projects .project-item:nth-child(6) {
+    grid-column-start: 1;
+    grid-column-end: 6; /* Move the 6th item to the start of the second row */
+}
+
+.projects .project-item:nth-child(n+6) {
+    grid-template-columns: repeat(4, 1fr); /* Adjust items for the second row */
+}
+
+.projects img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .projects {
+        grid-template-columns: repeat(2, 1fr); /* Adjust layout for smaller screens */
+    }
+}
+
 
   &:hover {
     transform: scale(1.05);
