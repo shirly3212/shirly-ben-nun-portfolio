@@ -452,6 +452,59 @@ footer ul li {
     width: 100%;
     height: auto;
   }
+
+.projects {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  text-align: center;
+  width: 90%;
+  margin: auto;
+  overflow: hidden; /* Ensures that the scrollbar does not appear outside the container */
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  gap: 4rem;
+  scroll-behavior: smooth; /* Smooth scrolling */
+  padding-bottom: 1rem; /* Optional: Add some padding at the bottom */
+}
+
+.project-item {
+  flex: 0 0 auto; /* Prevent the items from shrinking */
+  width: 100%; /* Ensure images take up full width in smaller screens */
+}
+
+.project-item img {
+  width: 100%;
+  max-width: 500px; /* Ensure consistent image sizing */
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-item img:hover {
+  transform: scale(1.05); /* Zoom effect on hover */
+}
+
+/* Responsive Design for Smaller Screens */
+@media screen and (max-width: 754px) {
+  .scroll-container {
+    overflow-x: scroll; /* Scrollable on small screens */
+    flex-wrap: nowrap;
+  }
+
+  .project-item {
+    min-width: 100%;
+  }
+
+  .project-item img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
   
   .form-section form {
     padding: 0;
