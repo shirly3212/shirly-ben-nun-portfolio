@@ -1,1 +1,236 @@
-/* fallback CSS */
+/* fallback CSS *//* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+}
+
+ul li {
+  list-style: none; 
+  padding: 0 1rem; 
+}
+
+h1, li, button, label, input, a, p, h3 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h4, h5 {
+  font-size: 2rem;
+  color: white;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #2c2c2c;
+}
+
+.main-head {
+  width: 95%;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 2rem 4rem;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+nav .logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+nav .logo h1 {
+  margin: 2rem;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+}
+
+nav ul li a {
+  padding: 0.5rem 1.5rem;
+  border-radius: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #38a4d3;
+  color: white;
+}
+
+.intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 90vh;
+  width: 90%;
+  margin: auto;
+  padding-top: 4rem;
+}
+
+.intro h2 {
+  font-size: 8rem;
+  padding-top: 2rem;
+  background: linear-gradient(#0d335f, #38a4d3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.intro h3 {
+  font-size: 6rem;
+  padding: 2rem 0;
+}
+
+.intro p {
+  padding-top: 2rem;
+  color: #2c2c2c;
+  font-size: 2rem;
+  max-width: 70rem;
+}
+
+.intro-social {
+  margin-top: 4rem;
+}
+
+.intro-social a {
+  margin-right: 3rem;
+}
+
+.intro-text, .intro-images {
+  flex: 1 1 40rem;
+}
+
+.categories {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  flex-wrap: wrap;
+  padding: 6rem 2rem;
+  width: 90%;
+  margin: auto;
+  gap: 2rem;
+}
+
+.category {
+  flex: 1 1 30rem;
+  border: 2px solid #38a4d3;
+  border-radius: 1rem;
+  padding: 3rem;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.category:hover {
+  background-color: #e6f7fc;
+  transform: scale(1.03);
+}
+
+.category h4 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.category p {
+  font-size: 2rem;
+  color: #2c2c2c;
+}
+
+.projects {
+  padding: 4rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 4rem;
+  text-align: center;
+  width: 90%;
+  margin: auto;
+}
+
+.projects img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.projects img:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  background: linear-gradient(rgba(255, 102, 0, 0.44), rgba(255, 0, 123, 0.55));
+  color: white;
+  min-height: 7vh;
+  padding: 0 5%;
+  list-style: none;
+}
+
+footer ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+footer ul li {
+  list-style: none;
+  padding: 0 1rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 754px) {
+  html {
+    font-size: 50%;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .intro-text {
+    text-align: center;
+  }
+
+  .categories {
+    flex-direction: column;
+    align-items: center;
+  }
+}
