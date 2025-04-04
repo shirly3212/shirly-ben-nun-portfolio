@@ -1,17 +1,26 @@
+
+/* _footer.scss */
 footer {
-  background: linear-gradient(#ff660071, #ff007b8c);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  background: linear-gradient(rgba(255, 102, 0, 0.44), rgba(255, 0, 123, 0.55));
   color: white;
   min-height: 7vh;
-  padding: 0% 5%;
-  @include flex(space-between, center, row);
-  align-items: flex-start;
+  padding: 0 5%;
+}
+
+footer ul {
+  display: flex;
+  justify-content: space-around;
   align-items: center;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+}
+
+footer ul li {
   list-style: none;
-
-  h4 { color: white;}
-
-  ul {
-    @include flex(space-around, center, row); 
-    list-style: none; 
-  }
+  padding: 0 1rem;
 }
