@@ -1,177 +1,800 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Shirly Ben Nun is a motion graphic designer, video editor, and a Junior website developer who specializes in HTML & CSS">
-  <meta name="robots" content="index,follow" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
- <link rel="stylesheet" href="/shirly-ben-nun-portfolio/Styles/styles.css" />
-  <title> Shirly Ben Nun| Motion Graphic Designer & Website Developer </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio: Shirly Herscovici</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Import Retro/Bold Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=VT323&family=Bebas+Neue&display=swap');
+        
+        body {
+            font-family: 'VT323', monospace, sans-serif; 
+            direction: ltr; /* Left-to-Right for English */
+        }
+        /* Override Tailwind RTL issues for specific elements that must be LTR */
+        .ltr {
+            direction: ltr;
+        }
+
+        /* --- Global Background (Blue Grid) --- */
+        .grid-bg {
+            background-color: #4A7DEB; /* Blue */
+            background-image: 
+                linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, 0.08) 25%, rgba(255, 255, 255, 0.08) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.08) 75%, rgba(255, 255, 255, 0.08) 76%, transparent 77%), 
+                linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, 0.08) 25%, rgba(255, 255, 255, 0.08) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, 0.08) 75%, rgba(255, 255, 255, 0.08) 76%, transparent 77%);
+            background-size: 40px 40px; 
+            perspective: 1000px;
+        }
+
+        /* --- Header: Profile Card Emoji Bubble Animation --- */
+        .animated-bubble {
+            font-size: 3rem; 
+            width: 4.5rem; 
+            height: 4.5rem;
+            border: 4px solid black; 
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5); 
+            display: flex;
+            align-items: center; 
+            justify-content: center;
+            overflow: hidden; 
+        }
+        
+        .emoji-layer-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .emoji-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            animation: layer-fade-cycle 25s infinite;
+            transition: opacity 0.8s ease-in-out; 
+        }
+
+        .emoji-layer:nth-child(1) { animation-delay: 0s; }
+        .emoji-layer:nth-child(2) { animation-delay: 5s; }
+        .emoji-layer:nth-child(3) { animation-delay: 10s; }
+        .emoji-layer:nth-child(4) { animation-delay: 15s; }
+        .emoji-layer:nth-child(5) { animation-delay: 20s; }
+        
+        @keyframes layer-fade-cycle {
+            0% { opacity: 0; }
+            4% { opacity: 1; }
+            20% { opacity: 1; } 
+            96% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+        
+        /* --- Header: Floating Elements (Background Parallax) --- */
+        @keyframes slow-float {
+            0% { transform: translate(0, 0) rotate(0deg); opacity: 0.6; }
+            33% { transform: translate(10px, -5px) rotate(2deg); opacity: 0.7; }
+            66% { transform: translate(-10px, 5px) rotate(-2deg); opacity: 0.9; }
+            100% { transform: translate(0, 0) rotate(0deg); opacity: 0.6; }
+        }
+
+        .floating-element {
+            position: absolute;
+            z-index: 1; 
+            animation: slow-float 8s ease-in-out infinite alternate;
+            opacity: 0.6; 
+            /* Will be controlled by JS for parallax */
+            transition: transform 0.1s linear; 
+        }
+        
+        .floating-element.dot {
+             opacity: 0.8;
+        }
+
+        .delay-1 { animation-delay: 1.5s; animation-duration: 9s; }
+        .delay-2 { animation-delay: 0.5s; animation-duration: 7s; }
+        .delay-3 { animation-delay: 2.8s; animation-duration: 10s; }
+        .delay-4 { animation-delay: 4.0s; animation-duration: 6s; }
+        
+        /* --- Header: Main Title (Bebas Neue + Big Shadow) --- */
+        @keyframes fade-in-up {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        .huge-text {
+            font-family: 'Bebas Neue', 'Impact', sans-serif; 
+            line-height: 0.85; 
+            font-weight: 400; 
+            letter-spacing: 0.02em; 
+            color: #F87CA9; /* Pink */
+            text-shadow: 
+                -8px -8px 0px #FFF, /* White border */
+                -1px -1px 0 #F87CA9, 
+                1px -1px 0 #F87CA9, 
+                -1px 1px 0 #F87CA9, 
+                1px 1px 0 #F87CA9,
+                -2px -2px 0 #F87CA9, 
+                6px 6px 0px #000; /* Black main shadow */ 
+            opacity: 0; 
+            animation: fade-in-up 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards; 
+        }
+        
+        .huge-text-size {
+            font-size: 3.5rem; 
+        }
+        
+        @media (min-width: 640px) {
+            .huge-text-size { font-size: 6rem; }
+        }
+
+        @media (min-width: 1024px) {
+            .huge-text-size { font-size: 9rem; }
+        }
+        
+        /* --- General Cartoon Shadows/Styles --- */
+        .text-cartoon-shadow {
+            text-shadow: 5px 5px 0px #000; 
+        }
+        
+        /* Waving Hand Icon */
+        .cartoon-hand {
+            display: inline-block;
+            background-color: white; 
+            border: 4px solid black; 
+            border-radius: 50%; 
+            padding: 8px 12px;
+            color: black; 
+            font-size: 3rem; 
+            box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.5); 
+            line-height: 1;
+        }
+
+        @keyframes wave-hand {
+            0%, 100% { transform: translate(0, 0) rotate(6deg); }
+            50% { transform: translate(-5px, 0) rotate(8deg); }
+        }
+        .animated-hand-wrapper {
+            animation: wave-hand 2s ease-in-out infinite; 
+            position: absolute; 
+            bottom: -50px; 
+            left: -30px; 
+            transform-origin: bottom center; 
+            z-index: 20; 
+        }
+
+        /* Profile Card Styling */
+        .profile-card {
+            max-width: 280px; 
+            transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+            transform-style: preserve-3d;
+        }
+        .card-cartoon-shadow {
+            box-shadow: 8px 8px 0px #000; 
+        }
+
+        @media (min-width: 768px) {
+            .profile-card {
+                max-width: 320px; 
+            }
+        }
+        
+        /* Color Variables */
+        .accent-color { color: #FFB954; } /* Yellow */
+        .border-accent { border-color: #FFB954; }
+        .bg-card-yellow { background-color: #FFB954; }
+
+        /* ======================================= */
+        /* --- PROJECT COLLAGE STYLES --- */
+        /* ======================================= */
+
+        .collage-section-layout {
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 1024px) {
+            .collage-section-layout {
+                flex-direction: row; 
+                align-items: flex-start;
+                height: 800px; 
+                justify-content: space-between;
+                padding-left: 2rem; 
+            }
+        }
+
+        /* Vertical Headline - Added clear border and fixed placement */
+        .collage-headline-vertical {
+            font-family: 'Bebas Neue', sans-serif;
+            line-height: 0.8;
+            letter-spacing: 0.05em;
+            color: #4A7DEB; /* Blue */
+            text-shadow: 8px 8px 0px #F87CA9; /* Pink shadow for impact */
+            white-space: nowrap;
+            
+            /* Mobile (Horizontal) */
+            font-size: 3rem; 
+            text-align: center;
+            width: 100%;
+            margin-bottom: 2rem; /* Increased margin for separation */
+            border-bottom: 4px solid #F87CA9; /* Clear separation line */
+            padding-bottom: 1rem;
+
+
+            /* Desktop (Vertical) */
+            @media (min-width: 1024px) {
+                writing-mode: vertical-rl;
+                text-orientation: mixed;
+                font-size: 8rem; 
+                margin-left: 0; 
+                margin-bottom: 0;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                transform: rotate(180deg); 
+                border-right: 4px solid #F87CA9; /* Vertical separation line */
+                border-bottom: none; /* Remove bottom border on desktop */
+                padding-bottom: 0;
+                padding-right: 1rem;
+            }
+        }
+
+        /* Small Subtitle - Positioned Absolutely on Desktop */
+        .collage-subtitle-small {
+            font-family: 'VT323', monospace;
+            font-size: 1.5rem;
+            color: #4A7DEB; 
+            letter-spacing: 0.1em;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            width: 100%;
+            @media (min-width: 1024px) {
+                position: absolute; 
+                top: 50px; 
+                left: 30px; 
+                text-align: left;
+                width: auto;
+                z-index: 20;
+            }
+        }
+
+        .collage-content-area {
+            width: 100%;
+            max-width: 800px; 
+            position: relative;
+            @media (min-width: 1024px) {
+                flex-grow: 1; 
+                height: 100%;
+                padding-right: 200px; 
+            }
+        }
+
+        .collage-content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            grid-template-rows: repeat(3, auto); 
+            gap: 1.5rem;
+            height: 100%; 
+        }
+
+        /* Specific item placement for the collage look (Desktop) */
+        @media (min-width: 1024px) {
+            .collage-img-1 { grid-column: 1 / 2; grid-row: 1 / 2; height: 250px; }
+            .collage-img-2 { grid-column: 2 / 3; grid-row: 1 / 3; height: 400px; }
+            .collage-img-3 { grid-column: 1 / 2; grid-row: 2 / 3; height: 300px; }
+            .collage-img-4 { grid-column: 2 / 3; grid-row: 3 / 4; height: 250px; }
+            .collage-text-box { 
+                grid-column: 1 / 2;
+                grid-row: 3 / 4;
+                padding: 1rem;
+                text-align: left;
+                font-family: 'VT323', monospace;
+                font-size: 1.1rem;
+                line-height: 1.4;
+                color: #374151;
+                display: flex; 
+                align-items: flex-end;
+            }
+        }
+
+        /* Mobile adjustments: stack all items vertically */
+        @media (max-width: 1023px) {
+            .collage-content-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+            .collage-content-area {
+                width: 100%;
+            }
+            .collage-img-1, .collage-img-2, .collage-img-3, .collage-img-4, .collage-text-box {
+                grid-column: 1 / -1;
+                grid-row: auto;
+                height: auto;
+            }
+            .collage-img-2 {
+                height: 300px;
+            }
+        }
+        
+        .text-box-cartoon {
+            border: 4px solid black;
+            border-radius: 0.75rem; 
+            box-shadow: 6px 6px 0px #F87CA9; 
+            padding: 1.5rem;
+            background-color: white;
+            height: 100%; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-item {
+            border: 4px solid black;
+            border-radius: 0.75rem;
+            box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            background-color: white;
+            height: 100%;
+            position: relative;
+        }
+        
+        .project-item-images {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .project-item-images img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+            min-height: 100%; 
+            /* Set a default background for placeholder effect */
+            background-color: #f0f0f0; 
+        }
+        
+        .project-item-images img.active {
+            opacity: 1;
+        }
+        
+        /* Style for the Placeholder Image text (always visible if image fails) */
+        .placeholder-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #333;
+            font-size: 1.2rem;
+            text-align: center;
+            font-family: 'Bebas Neue', sans-serif;
+            pointer-events: none; /* Make sure it doesn't interfere with clicks */
+            z-index: 5;
+        }
+    </style>
 </head>
+<body class="bg-gray-100">
 
-<body>
-  <header class="main-head">
-    <nav>
-      <div class="logo">
-        <img src="new icons/code.svg" alt="logo">
-        <h1> Shirly Ben Nun</h1>
-      </div>
-      <ul>
-        <li><a class="active" href="/">Home</a></li>
-        <li><a href="/shirly-ben-nun-portfolio/Projects/index.html">Projects</a></li>
-        <li><a href="/shirly-ben-nun-portfolio/contact/index.html
-">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  <section class="intro">
-    <div class="intro-text">
-      <h2>Shirly Ben Nun</h2>
-      <h3>Motion Graphic Designer <br /> Webstie Developer </h3>
-      <p>Shirly Ben Nun is a motion graphic designer, <br /> video editor, and a Junior website developer who
-        spechializes
-        in Html & CSS.</p>
-      <div class="intro-social"></div>
-      <a href=""><img src="/shirly-ben-nun-portfolio/new icons/github.svg" alt="github-social-links"></a>
-      <a href="https://www.linkedin.com/in/shirly-ben-nun-a93766278/index.html" target="_blank" rel="noopener noreferrer">
-    <img src="/shirly-ben-nun-portfolio/new icons/linked-in.svg" alt="LinkedIn Profile"></a>
-    </div>
-    <div class="me">
-       <svg width="1124" height="923" viewBox="0 0 1124 923" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path id="HAIR-NO-MOVEMENT"
-          d="M738.362 184.495C738.199 184.525 737.956 184.569 737.66 184.621C731.879 185.642 696.925 191.398 661.685 177.07C646.756 171.001 681.481 181.602 648.232 160.5C609.25 135.76 638.403 123.036 635.5 111.5C629.704 88.4646 600.014 72.1158 620.5 74.5C625.894 75.1277 623.522 59.4785 632.506 57.1513C634.48 56.6401 643.12 54.402 647.333 46.7682C651.09 39.9583 678.989 36.0851 680.5 30.5C704.081 30.5 686.452 7.48471 715.442 12.654C732.116 15.6271 745.085 23.744 770.342 39.8566C814.303 67.9008 836.284 81.923 841.224 103.406C845.906 123.769 834.668 132.543 842.841 154.34C850.452 174.636 842.868 171.083 847.028 187.501C853.721 213.922 848.549 245.117 838.2 257.196C826.853 270.439 816.002 277.708 801.596 287.357C783.513 299.469 781.212 453.117 770.342 452.501C750.635 451.384 618.264 337.407 617.5 320C617.5 326 615 257 635.704 180.773C639.994 172.158 730.028 181.36 731.137 176.411"
-          fill="url(#paint0_linear_0_1)" />
-        <g id="NECK">
-          <path id="Vector" d="M776.347 229.935L836.752 326.102L663.36 363.527L674.404 243.13L776.347 229.935Z"
-            fill="#FFB6B6" />
-          <path id="NECK_2" opacity="0.1"
-            d="M776.347 229.935L836.752 326.102L663.36 363.527L674.404 243.13L776.347 229.935Z" fill="black" />
-        </g>
-        <path id="SHIRTBODY"
-          d="M668 314L672 271L805.314 278L804.314 314L879.5 382L912.314 674L1001.93 829.266L547.994 762L581.154 642L581.154 327.488L625 314H668Z"
-          fill="#38A5D2" />
-        <g id="TABLE">
-          <path id="TABLE_2"
-            d="M5.03646 907.032C-0.934059 896.987 -1.63916 884.576 3.15068 873.833L74.3285 714.213C79.6407 702.3 91.0605 694.602 103.422 694.602H1002.45C1014.47 694.602 1025.4 701.658 1030.98 713.017L1107.28 868.238C1112.55 878.968 1112.2 891.57 1106.35 901.95C1100.49 912.33 1090.22 918.555 1078.87 918.603L32.3703 923H32.2393C21.1454 923 10.9828 917.038 5.03646 907.032Z"
-            fill="white" />
-          <path id="Vector_2"
-            d="M5.03646 907.032C-0.934059 896.987 -1.63916 884.576 3.15068 873.833L74.3285 714.213C79.6407 702.3 91.0605 694.602 103.422 694.602H1002.45C1014.47 694.602 1025.4 701.658 1030.98 713.017L1107.28 868.238C1112.55 878.968 1112.2 891.57 1106.35 901.95C1100.49 912.33 1090.22 918.555 1078.87 918.603L32.3703 923H32.2393C21.1454 923 10.9828 917.038 5.03646 907.032ZM103.422 698.212C92.3579 698.212 82.1369 705.102 77.3823 715.764L6.20447 875.384C1.91717 884.999 2.54797 896.107 7.8921 905.099C13.2148 914.055 22.3095 919.391 32.2398 919.391H32.3571L1078.86 914.994C1089.02 914.951 1098.21 909.379 1103.45 900.088C1108.69 890.798 1109 879.518 1104.28 869.916L1027.99 714.692C1022.99 704.527 1013.21 698.212 1002.45 698.212H103.422Z"
-            fill="#3F3D56" />
-        </g>
-        <g id="TABLET">
-          <path id="Vector_3"
-            d="M918.751 861.978L547.745 834.754C542.268 834.352 537.899 830.41 536.616 824.713C535.333 819.015 537.546 813.385 542.254 810.371L624.294 757.832C626.377 756.497 628.766 755.849 631.189 755.974L952.106 771.543C956.349 771.747 960.138 774.221 962.243 778.158C964.348 782.095 964.415 786.835 962.422 790.838L930.471 855.032C928.326 859.34 924.122 862.01 919.596 862.01C919.315 862.01 919.033 861.999 918.751 861.978Z"
-            fill="#3F3D56" />
-          <path id="Vector_4" d="M544.528 818.87L914.009 845.9L943.23 778.673L626.416 765.412L544.528 818.87Z"
-            fill="white" />
-          <path id="LINEPAINT"
-            d="M826.649 790.16C833.773 790.756 838.923 797.805 839.011 805.216C839.102 812.908 833.81 819.771 827.653 823.177C820.439 827.167 811.628 827.491 803.735 826.427C796.635 825.47 788.979 822.784 784.653 816.313C781.012 810.869 779.922 802.825 783.452 796.961C786.952 791.148 793.94 789.791 799.63 792.417C805.652 795.197 809.258 801.302 809.006 808.331C808.727 816.122 804.215 823.145 798.122 827.207C791.551 831.589 783.46 832.751 775.868 832.419C767.595 832.056 759.434 829.862 751.965 826.106C744.967 822.587 738.034 817.643 733.197 811.114C728.661 804.994 726.139 796.657 729.11 789.084C731.547 782.873 737.205 779.238 743.479 780.032C749.224 780.758 754.907 784.57 757.231 790.361C759.853 796.894 758.238 804.537 754.327 810.12C749.812 816.566 742.952 820.01 735.484 820.24C727.535 820.485 719.811 817.154 713.484 812.239C707.625 807.687 702.548 801.96 696.214 798.113C693.166 796.262 689.818 795.026 686.286 794.885C681.789 794.705 681.496 807.08 677.085 807.814C673.347 808.436 665.413 797.752 661.808 796.337C658.723 795.126 655.024 806.902 652.941 810.82C646.43 823.061 644.614 817.177 645.802 814.028C646.734 811.558 655.282 790.499 660.321 789.656C665.36 788.814 666.235 791.852 666.235 791.852C668.642 794.156 672.466 800.966 675.896 800.258C679.471 799.521 683.381 790.513 687.036 790.76C699.984 791.636 708.064 803.816 718.249 810.664C728.958 817.863 745.029 818.999 752.311 805.872C754.956 801.105 755.728 794.654 752.559 789.967C749.919 786.062 745.044 783.59 740.511 784.138C734.817 784.827 731.763 790.459 731.732 796.183C731.695 803.188 736.027 809.059 740.726 813.45C751.184 823.223 765.368 828.568 779.272 828.307C785.795 828.185 792.786 826.662 798.032 822.247C802.565 818.432 805.815 812.058 805.022 805.79C804.337 800.366 800.273 796.106 795.181 795.352C789.972 794.581 785.72 798.377 785.256 803.945C784.734 810.207 788.011 815.588 792.953 818.654C798.552 822.128 805.482 822.816 811.85 822.726C818.61 822.63 825.717 821.023 830.663 815.736C834.882 811.227 836.695 804.352 833.209 798.789C831.67 796.333 829.277 794.549 826.477 794.315C823.985 794.106 824.144 789.95 826.649 790.16Z"
-            fill="#38A5D2" />
-        </g>
-        <g id="HANDPENCIL">
-          <path id="Vector_5"
-            d="M673.141 780.791L674.713 767.626L777.794 539.406C779.502 535.626 783.779 534.045 787.328 535.883C790.878 537.72 792.376 542.292 790.669 546.071L687.633 774.191L678.924 783.785C677.893 784.915 676.365 785.199 675.03 784.508C673.696 783.817 672.955 782.358 673.141 780.791Z"
-            fill="#3F3D56" />
-          <path id="Vector_6"
-            d="M746.119 640.978C758.738 642.258 770.924 646.739 781.658 654.044L782.229 654.118L782.284 653.513L903.797 661.85L878.595 492.955L964.049 431.153L970.589 720.158C967.736 738.934 950.962 751.371 933.366 747.759L776.61 715.863L776.796 713.827L776.249 713.726C764.426 718.413 751.686 719.998 739.096 718.349C707.558 714.688 683.561 694.394 685.498 673.026C687.435 651.658 714.569 637.31 746.119 640.978Z"
-            fill="#FFB6B6" />
-        </g>
-        <path id="SHIRT"
-          d="M795.279 370.64L845 327C845 327 945.657 340 963.555 410.098C964.914 415.422 994.602 667.1 993.067 673.897C981.694 724.25 881.457 656.824 881.457 656.824L795.279 370.64Z"
-          fill="#38A5D2" />
-        <path id="HAND-L"
-          d="M259.804 517.356C271.551 522.377 282.001 530.328 290.279 540.543L290.806 540.786L291.025 540.224L405.242 584.75L527.194 374L594.612 418.596L453.212 660.607C445.301 677.706 425.788 684.556 409.911 675.808L268.397 598.15L269.136 596.258L268.639 595.997C256.011 596.923 243.358 594.608 231.74 589.243C202.509 576.254 185.093 549.627 192.841 529.773C200.589 509.919 230.563 504.358 259.804 517.356Z"
-          fill="#FFB6B6" />
-        <path id="SHIRT-L"
-          d="M655.283 407.573L601.343 321.481C601.343 321.481 537.155 335.041 510.714 371.701C507.409 376.283 393.878 552.022 393.147 559.691C388.027 613.377 518.509 638.531 518.509 638.531L655.283 407.573Z"
-          fill="#38A5D2" />
-        <g id="COMPUTER">
-          <path id="Vector_7"
-            d="M378.965 827.832L368.329 818.102C366.746 816.653 364.82 815.693 362.761 815.326L125.77 773.168C120.361 772.206 116.365 768.037 115.342 762.286C114.319 756.536 116.604 751.093 121.307 748.081L205.854 693.938C208.68 692.128 212.006 691.559 215.222 692.334L515.708 764.792C521.549 766.2 525.448 771.238 525.639 777.627C525.831 784.016 522.242 789.31 516.495 791.115L390.858 830.554C389.666 830.929 388.45 831.112 387.245 831.112C384.246 831.112 381.311 829.979 378.965 827.832Z"
-            fill="#3F3D56" />
-          <path id="Vector_8"
-            d="M373.095 830.419L101.431 790.343C92.3386 789.003 84.8343 782.049 82.3117 772.629L19.9176 539.549C17.8034 531.649 19.3818 523.469 24.2481 517.104C29.1144 510.739 36.3042 507.45 43.9816 508.075L317.684 530.456C327.585 531.266 335.898 538.708 338.369 548.974L398.725 799.75C400.651 807.752 398.725 816.211 393.572 822.377C389.135 827.687 382.843 830.653 376.284 830.653C375.227 830.653 374.161 830.576 373.095 830.419Z"
-            fill="#3F3D56" />
-        </g>
-        <g id="PLANT-R">
-          <path id="Vector_33"
-            d="M1123.52 739.428C1124.98 789.324 1095.83 807.609 1059.24 808.677C1058.39 808.702 1057.54 808.718 1056.7 808.723C1055.01 808.737 1053.32 808.709 1051.66 808.638C1018.57 807.266 992.379 789.7 991.024 743.298C989.622 695.277 1049.23 632.883 1053.7 628.269L1053.71 628.264C1053.88 628.087 1053.96 628 1053.96 628C1053.96 628 1122.07 689.538 1123.52 739.428Z"
-            fill="#D0CDE1" />
-          <path id="Vector_34"
-            d="M1056.61 801.116L1079.85 766.555L1056.65 804.834L1056.7 808.723C1055.01 808.737 1053.32 808.709 1051.66 808.638L1052.81 758.646L1052.78 758.26L1052.82 758.187L1052.93 753.463L1027.48 716.509L1052.9 749.927L1053 750.925L1053.87 713.155L1031.88 674.842L1053.93 706.519L1053.7 628.269V628.008L1053.71 628.264L1055.16 689.936L1075.2 664.885L1055.23 695.249L1055.67 729.034L1074.1 696.061L1055.74 734.002L1055.98 752.787L1082.79 706.857L1056.06 759.341L1056.61 801.116Z"
-            fill="#3F3D56" />
-        </g>
-        <g id="PLANT-L">
-          <path id="Vector_33_2"
-            d="M20.0127 742.239C20.6885 792.151 50.5979 809.174 87.1969 808.678C88.0468 808.667 88.8931 808.646 89.7343 808.615C91.4293 808.557 93.1069 808.457 94.7671 808.316C127.767 805.531 153.185 786.862 152.556 740.445C151.906 692.407 89.6913 632.617 85.0256 628.197L85.0176 628.193C84.84 628.024 84.7489 627.94 84.7489 627.94C84.7489 627.94 19.3371 692.331 20.0127 742.239Z"
-            fill="#D0CDE1" />
-          <path id="Vector_34_2"
-            d="M89.5044 801.011L64.8084 767.474L89.6164 804.728L89.7342 808.615C91.4292 808.557 93.1068 808.457 94.7671 808.316L91.4799 758.418L91.4947 758.032L91.4494 757.96L91.1368 753.245L114.987 715.238L91.0154 749.711L90.9676 750.712L88.4849 713.013L108.811 673.797L88.1391 706.387L85.0255 628.197L85.0144 627.937L85.0175 628.193L86.1949 689.871L65.1068 665.699L86.3563 695.182L87.3628 728.955L67.5339 696.8L87.5063 733.921L88.0654 752.7L59.3155 707.957L88.2643 759.251L89.5044 801.011Z"
-            fill="#3F3D56" />
-        </g>
-        <g id="SQUARE">
-          <path id="Vector_17" d="M1069 842H1028V883H1069V842Z" fill="#D0CDE1" />
-          <path id="Vector_18" d="M1045 809V859H1095V809H1045ZM1092.82 856.823H1047.16V811.176H1092.82V856.823Z"
-            fill="#3F3D56" />
-        </g>
-        <g id="SQUARE_2">
-          <path id="Vector_17_2" d="M74 842H115V883H74V842Z" fill="#D0CDE1" />
-          <path id="Vector_18_2" d="M98 809V859H48V809H98ZM50.1765 856.823H95.8383V811.176H50.1765V856.823Z"
-            fill="#3F3D56" />
-        </g>
-        <g id="HEAD">
-          <g id="HEAD_2">
-            <path
-              d="M720.654 262.373C781.405 270.7 837.858 224.885 846.745 160.044C855.631 95.2029 813.586 35.8891 752.835 27.5631C692.083 19.237 635.631 65.0515 626.744 129.893C617.857 194.734 659.902 254.047 720.654 262.373Z"
-              fill="#FFB6B6" />
-            <path
-              d="M794.439 152.54C789.764 138.778 772.271 143.393 771.971 143.405C766.105 143.632 766.796 157.157 733.828 138.177C719.861 130.137 700.925 124.182 670.849 98.7607C635.588 68.9566 628.681 142.27 626.744 129.893C554 98.7607 621.799 42.6815 646.083 31.1986C646.083 31.1986 665.5 17.5 680.766 12.2265L696.959 7.37104C707.186 2.71654 712.892 3.74043 722.627 2.24717C756.835 -3 760.454 3.76212 788.474 12.8198C804.59 18.0295 812.277 25.0526 835.112 44.4453C851.56 64.3631 863.735 89.8054 865.712 111.761C867.586 132.57 869.668 123.486 870.197 144.755C870.727 166.024 871.132 174.352 870.342 192.214C868.699 229.335 867.409 238.747 865.712 251.131C863.2 269.46 849.332 451.614 833.749 459.218C814.189 468.762 783.41 464.043 772.724 461.957C753.351 458.174 755.029 341.849 756.635 324.5C757.238 317.998 747.339 227.683 756.635 206.322C760.509 197.423 789.294 167.985 793.081 162.448"
-              fill="url(#paint1_linear_0_1)" />
-          </g>
-          <path id="GLASESS"
-            d="M694.527 145.439C699.378 146.519 697.573 149.878 697.573 150.357C697.573 150.837 699.378 178.665 722.722 185.982C746.068 193.299 760.053 178.905 764.113 171.708C768.173 164.51 771.557 147.358 772.572 146.039C773.586 144.72 778.436 142.441 778.436 142.441L779 135.724L772.91 133.805C772.91 133.805 757.571 126.369 735.016 126.008C712.46 125.648 699.715 139.442 699.715 139.442C693.366 137.287 685.467 137.003 678.285 139.442C678.285 139.442 665.54 125.648 642.984 126.007C620.429 126.366 605.09 133.804 605.09 133.804L599 135.723L599.564 142.441C599.564 142.441 604.414 144.72 605.428 146.039C606.443 147.358 609.826 164.511 613.886 171.708C617.946 178.905 631.931 193.299 655.277 185.982C678.622 178.665 680.427 150.838 680.427 150.357C680.427 149.877 678.624 146.519 683.473 145.439C687.688 144.501 690.315 144.502 694.527 145.439ZM750.579 180.224C732.76 191.62 711.444 180.105 705.016 165.111C698.587 150.118 704.001 142.201 704.001 142.201C714.759 123.548 758.138 122.774 765.58 142.921C766.82 146.279 768.398 168.829 750.579 180.224ZM612.419 142.919C619.876 122.734 663.26 123.584 673.998 142.201C673.998 142.201 679.412 150.118 672.983 165.111C666.555 180.104 645.238 191.619 627.42 180.224C609.599 168.828 611.179 146.278 612.419 142.919Z"
-            fill="#211615" />
-          <path id="Vector 1"
-            d="M706.5 124L716 128.655L748 145.964L758 148H769.567L772.881 145.964L778.5 142.4H784.478H790L776.746 122.036L740.5 116L706.5 124Z"
-            fill="url(#paint2_linear_0_1)" />
-        </g>
-        <defs>
-          <linearGradient id="paint0_linear_0_1" x1="716.609" y1="11" x2="716.609" y2="452.503"
-            gradientUnits="userSpaceOnUse">
-            <stop stop-color="#897718" />
-            <stop offset="0.0001" stop-color="#897718" />
-            <stop offset="1" stop-color="#FFFB91" />
-          </linearGradient>
-          <linearGradient id="paint1_linear_0_1" x1="761.808" y1="-7.54058" x2="698.815" y2="452.087"
-            gradientUnits="userSpaceOnUse">
-            <stop stop-color="#897718" />
-            <stop offset="0.0001" stop-color="#897718" />
-            <stop offset="1" stop-color="#FFFB91" />
-          </linearGradient>
-          <linearGradient id="paint2_linear_0_1" x1="748.25" y1="116" x2="748.25" y2="148"
-            gradientUnits="userSpaceOnUse">
-            <stop stop-color="#A99A39" />
-            <stop offset="1" stop-color="#AEA13E" />
-          </linearGradient>
-              <text x="1000" y="100" font-size="40" fill="black">me</text>
-        </defs>
-      </svg>
-      <img class="splash" src="/shirly-ben-nun-portfolio/img new
-/splash.svg" alt="">
-    </div>
-  </section>
-  <footer>
-    <h4> Shirly Ben Nun &copy; 2024 </h4>
-    <li><a href="#"><img src="/shirly-ben-nun-portfolio/new icons/instagram 1.svg" alt="instagram"></a></li>
-    <li><a href="#"><img src="/shirly-ben-nun-portfolio/new icons/twitter 1.svg" alt="twitter"></a></li>
-    <li><a href="https://www.youtube.com/channel/UCmoA-WifFijhY71DV90qi0w"><img src="/shirly-ben-nun-portfolio/new icons/youtube-symbol 1.svg" alt="youtube-social"></a></li>
-  </footer>
+    <!-- HEADER SECTION (HERO) -->
+    <header id="mainHeader" class="grid-bg text-white pt-10 pb-8 px-4 sm:px-8 lg:px-16 overflow-hidden relative">
+        <!-- Floating Elements Background -->
+        <div class="absolute inset-0 z-0">
+            <svg class="floating-element delay-1 w-10 h-10" style="top: 15%; right: 10%;" data-speed="10" viewBox="0 0 100 100">
+                <line x1="10" y1="50" x2="90" y2="50" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <line x1="50" y1="10" x2="50" y2="90" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <line x1="25" y1="25" x2="75" y2="75" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                <line x1="75" y1="25" x2="25" y2="75" stroke="white" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            
+            <div class="floating-element dot delay-2 w-3 h-3 rounded-full bg-white" style="top: 35%; left: 5%;" data-speed="5"></div>
+            
+            <svg class="floating-element delay-3 w-8 h-8" style="bottom: 10%; left: 40%;" data-speed="12" viewBox="0 0 100 100">
+                <line x1="10" y1="50" x2="90" y2="50" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <line x1="50" y1="10" x2="50" y2="90" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <line x1="25" y1="25" x2="75" y2="75" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                <line x1="75" y1="25" x2="25" y2="75" stroke="white" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+
+            <div class="floating-element dot w-4 h-4 rounded-full bg-white" style="top: 25%; left: 80%;" data-speed="8"></div>
+
+            <svg class="floating-element delay-2 w-5 h-5" style="bottom: 25%; right: 20%;" data-speed="6" viewBox="0 0 100 100">
+                <line x1="10" y1="50" x2="90" y2="50" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <line x1="50" y1="10" x2="50" y2="90" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <line x1="25" y1="25" x2="75" y2="75" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                <line x1="75" y1="25" x2="25" y2="75" stroke="white" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            
+            <div class="floating-element dot delay-4 w-2 h-2 rounded-full bg-white" style="bottom: 5%; right: 50%;" data-speed="4"></div>
+
+            <svg class="floating-element w-10 h-10" style="top: 10%; left: 30%; animation-duration: 9.5s;" data-speed="15" viewBox="0 0 100 100">
+                <rect x="10" y="10" width="80" height="80" fill="none" stroke="white" stroke-width="5" stroke-dasharray="10 10" />
+            </svg>
+            
+            <svg class="floating-element w-16 h-16" style="bottom: 20%; left: 10%; animation-delay: 3.5s; animation-duration: 7s;" data-speed="7" viewBox="0 0 100 100">
+                <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="white" stroke-width="6" stroke-dasharray="10 10" stroke-linecap="round"/>
+            </svg>
+        </div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex justify-between items-start mb-10">
+                <span class="text-white text-sm font-bold tracking-widest">SHIRLY STUDIO</span>
+                <div class="text-white text-5xl hidden sm:block">&#8594;</div>
+            </div>
+
+            <div class="flex flex-wrap lg:flex-nowrap gap-8 lg:gap-4 items-end relative z-10">
+                <!-- Left Column (Text) -->
+                <div class="w-full lg:w-3/5 order-1 relative z-10">
+                    <div id="hugeText" class="huge-text huge-text-size mb-4">
+                        GRAPHIC<br>DESIGNER
+                    </div>
+                    <h2 class="text-4xl sm:text-5xl font-normal text-white tracking-wider mt-4 text-cartoon-shadow">
+                        SHIRLY HERSCOVICI
+                    </h2>
+                </div>
+
+                <!-- Right Column (Profile Card) -->
+                <div class="w-full lg:w-2/5 flex justify-end order-2">
+                    <div id="profileCard" class="bg-card-yellow p-4 sm:p-6 rounded-3xl -rotate-3 card-cartoon-shadow relative w-full profile-card z-0">
+                        <!-- Waving Hand Icon -->
+                        <div class="animated-hand-wrapper hidden sm:block">
+                            <span class="cartoon-hand">&#9996;</span>
+                        </div>
+                        
+                        <!-- Emoji Bubble Animation -->
+                        <div id="emojiContainer" class="absolute top-[-40px] right-[-20px] bg-white rounded-full p-2 text-4xl animated-bubble">
+                            <div class="emoji-layer-container">
+                                <span class="emoji-layer">😊</span>
+                                <span class="emoji-layer">😆</span>
+                                <span class="emoji-layer">😍</span>
+                                <span class="emoji-layer">🤩</span>
+                                <span class="emoji-layer">😺</span>
+                            </div>
+                        </div>
+
+                        <img 
+                            src="https://placehold.co/300x400/F87CA9/FFFFFF?text=PROFILE+PHOTO" 
+                            onerror="this.onerror=null;this.src='https://placehold.co/300x400/F87CA9/FFFFFF?text=PROFILE';" 
+                            alt="Shirly's Profile Picture"
+                            class="w-full h-auto object-cover rounded-xl shadow-lg border-4 border-white"
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="flex justify-start text-sm text-white font-normal mt-8 space-x-8"> 
+                <div class="ltr">
+                    <span class="block">Website:</span>
+                    <a href="#" class="hover:underline">www.yourportfolio.com</a>
+                </div>
+                <div class="ltr">
+                    <span class="block">Email:</span>
+                    <a href="mailto:shirly@example.com" class="hover:underline">shirly@example.com</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-16">
+        <!-- ABOUT SECTION -->
+        <section class="mb-20">
+            <h2 class="text-4xl font-normal text-gray-800 mb-6 border-b-4 border-accent pb-2 inline-block">About Me</h2>
+            <p class="text-gray-700 text-lg max-w-3xl leading-relaxed">
+                Hello, I'm Shirly, a graphic designer with a passion for creating unique and memorable visual brands and user experiences. I believe in the power of the pixel to transform an abstract idea into inspiring reality. Here you can find a selection of my work from recent years.
+            </p>
+        </section>
+
+        <!-- FEATURED PROJECT SECTION (UPDATED TO COLLAGE LAYOUT) -->
+        <section id="featuredProject" class="mb-24">
+            <div class="collage-section-layout">
+                
+                <!-- Vertical Headline (Improved styling for separation) -->
+                <div class="collage-headline-vertical">
+                    MAGAZINE<br>DESIGN
+                </div>
+                
+                <!-- Small Subtitle - Positioned Absolutely on Desktop -->
+                <div class="collage-subtitle-small">
+                    SPRING 2030 / FASHION BRAND
+                </div>
+                
+                <!-- Content Area: Images and Text -->
+                <div class="collage-content-area">
+                    <div class="collage-content-grid">
+                    
+                        <!-- Image 1 (Carousel) -->
+                        <div class="collage-img-1 project-item is-carousel" data-images='[
+                            {"src": "WhatsApp Image 2025-04-03 at 22.42.45.jpeg", "alt": "Magazine Cover 1", "text": "COVER"}
+                        ]'> 
+                            <div class="project-item-images">
+                                <!-- Placeholders are generated dynamically by JS for carousel items -->
+                            </div>
+                        </div>
+
+                        <!-- Image 2 (Carousel) -->
+                        <div class="collage-img-2 project-item is-carousel" data-images='[
+                            {"src": "WhatsApp Image 2025-04-03 at 23.32.23.jpeg", "alt": "Magazine Spread", "text": "SPREAD"}
+                        ]'> 
+                            <div class="project-item-images">
+                                <!-- Placeholders are generated dynamically by JS for carousel items -->
+                            </div>
+                        </div>
+
+                        <!-- Image 3 (Carousel) -->
+                        <div class="collage-img-3 project-item is-carousel" data-images='[
+                            {"src": "WhatsApp Image 2025-04-03 at 23.32.11.jpeg", "alt": "Magazine Image 1", "text": "IMAGE 1"},
+                            {"src": "WhatsApp Image 2025-04-03 at 23.31.48.jpeg", "alt": "Magazine Image 2", "text": "IMAGE 2"}
+                        ]'> 
+                            <div class="project-item-images">
+                                <!-- Placeholders are generated dynamically by JS for carousel items -->
+                            </div>
+                        </div>
+
+                        <!-- Image 4 (Carousel) -->
+                        <div class="collage-img-4 project-item is-carousel" data-images='[
+                            {"src": "WhatsApp Image 2025-04-03 at 23.31.59.jpeg", "alt": "Magazine Image 3", "text": "IMAGE 3"},
+                            {"src": "WhatsApp Image 2025-04-03 at 23.05.18.jpeg", "alt": "Magazine Image 4", "text": "IMAGE 4"}
+                        ]'> 
+                            <div class="project-item-images">
+                                <!-- Placeholders are generated dynamically by JS for carousel items -->
+                            </div>
+                        </div>
+                        
+                        <!-- Text Area (Bottom Left) -->
+                        <div class="collage-text-box">
+                            <p class="mb-2 text-base md:text-lg">
+                                This project involved branding and magazine design for a military-focused current affairs brand, utilizing a bold visual language and unconventional compositions. The work includes creating spreads, covers, and selecting typography that combines seriousness with impactful communication. The design aims for a unique, unforgettable look while maintaining a clean, engaging graphic line.
+                            </p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Button remains outside the collage grid for standard layout -->
+            <div class="flex justify-center mt-12">
+                <a href="#" class="bg-blue-600 text-white text-xl font-bold py-3 px-8 rounded-full border-4 border-black card-cartoon-shadow hover:bg-blue-700 transition duration-300 transform hover:-translate-y-1">
+                    View Full Project Details &rarr;
+                </a>
+            </div>
+        </section>
+
+        <!-- OTHER PROJECTS SECTION -->
+        <section>
+            <h2 class="text-4xl font-normal text-gray-800 mb-8 border-b-4 border-accent pb-2 inline-block">Other Projects</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+                    <img 
+                        src="https://placehold.co/600x400/F0F0F0/222222?text=Branding+for+Startup" 
+                        alt="Branding Project" 
+                        class="w-full h-48 object-cover"
+                    >
+                    <div class="p-6">
+                        <h3 class="text-2xl font-normal text-gray-900 mb-2">Tech Company Branding</h3>
+                        <p class="text-gray-600 mb-4">Developed a full visual language, including logo, color palette, and typography.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-200 text-blue-800 text-sm font-bold px-3 py-1 rounded-full">Branding</span>
+                            <span class="bg-gray-200 text-gray-800 text-sm font-bold px-3 py-1 rounded-full">Logo</span>
+                        </div>
+                        <a href="#" class="accent-color font-normal hover:text-amber-600 transition">View Project &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+                    <img 
+                        src="https://placehold.co/600x400/E5E7EB/222222?text=Website+Design" 
+                        alt="Website Design Project" 
+                        class="w-full h-48 object-cover"
+                    >
+                    <div class="p-6">
+                        <h3 class="text-2xl font-normal text-gray-900 mb-2">App UI/UX Design</h3>
+                        <p class="text-gray-600 mb-4">Designed mockups, user screens, and User Flows for a financial application.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-green-200 text-green-800 text-sm font-bold px-3 py-1 rounded-full">UI/UX</span>
+                            <span class="bg-purple-200 text-purple-800 text-sm font-bold px-3 py-1 rounded-full">Applications</span>
+                        </div>
+                        <a href="#" class="accent-color font-normal hover:text-amber-600 transition">View Project &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 hover:shadow-2xl transition duration-300">
+                    <img 
+                        src="https://placehold.co/600x400/D1D5DB/222222?text=Digital+Campaign" 
+                        alt="Digital Campaign" 
+                        class="w-full h-48 object-cover"
+                    >
+                    <div class="p-6">
+                        <h3 class="text-2xl font-normal text-gray-900 mb-2">Digital Ad Campaign</h3>
+                        <p class="text-gray-600 mb-4">Created banners and social media videos for a fashion brand.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-pink-200 text-pink-800 text-sm font-bold px-3 py-1 rounded-full">Social</span>
+                            <span class="bg-yellow-200 text-yellow-800 text-sm font-bold px-3 py-1 rounded-full">Creative</span>
+                        </div>
+                        <a href="#" class="accent-color font-normal hover:text-amber-600 transition">View Project &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION (COMPLETED) -->
+        <section id="contact" class="my-24">
+            <h2 class="text-4xl font-normal text-gray-800 mb-8 border-b-4 border-accent pb-2 inline-block">Get In Touch</h2>
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl border-4 border-black" style="box-shadow: 8px 8px 0px #F87CA9;">
+                <p class="text-gray-700 mb-6">Have a crazy project idea? Want to collaborate? Send me a message, and I'll get back to you soon!</p>
+                
+                <form id="contactForm">
+                    <!-- Name Field -->
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 font-bold mb-2">Full Name:</label>
+                        <input type="text" id="name" name="name" class="w-full p-3 rounded-lg border-4 border-black shadow-md focus:ring-4 focus:ring-pink-300 transition duration-150" required>
+                    </div>
+                    <!-- Email Field -->
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 font-bold mb-2">Email:</label>
+                        <input type="email" id="email" name="email" class="w-full p-3 rounded-lg border-4 border-black shadow-md focus:ring-4 focus:ring-pink-300 transition duration-150" required>
+                    </div>
+                    <!-- Message Field -->
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 font-bold mb-2">Your Message:</label>
+                        <textarea id="message" name="message" rows="4" class="w-full p-3 rounded-lg border-4 border-black shadow-md focus:ring-4 focus:ring-pink-300 transition duration-150" required></textarea>
+                    </div>
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full bg-blue-600 text-white text-2xl font-bold py-3 rounded-xl border-4 border-black card-cartoon-shadow hover:bg-blue-700 transition duration-300 transform hover:-translate-y-1">
+                        Send Message! &#10148;
+                    </button>
+                </form>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer class="grid-bg text-white py-8 px-4 sm:px-8 lg:px-16 text-center border-t-8 border-accent">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-lg mb-2">© 2025 Shirly Herscovici Studio. All rights reserved.</p>
+            <div class="flex justify-center space-x-4 text-3xl mt-4">
+                <a href="#" class="hover:text-pink-300 transition duration-200" title="Instagram">
+                    <span class="text-3xl">📸</span>
+                </a>
+                <a href="#" class="hover:text-pink-300 transition duration-200" title="LinkedIn">
+                    <span class="text-3xl">🔗</span>
+                </a>
+                <a href="mailto:shirly@example.com" class="hover:text-pink-300 transition duration-200" title="Email">
+                    <span class="text-3xl">📧</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- INTERACTIVITY JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- 1. Image Carousel Logic for Featured Projects ---
+            const carouselItems = document.querySelectorAll('.project-item.is-carousel');
+
+            // 1a. Function to initialize carousel items
+            const initCarousel = (item) => {
+                const container = item.querySelector('.project-item-images');
+                // The data-images now uses reliable placeholder URLs
+                const imagesData = JSON.parse(item.getAttribute('data-images'));
+                
+                // Clear existing content (important for re-running)
+                container.innerHTML = '';
+                
+                let currentIndex = 0;
+
+                // Create the actual image and placeholder elements
+                imagesData.forEach((data, index) => {
+                    // Create Placeholder Text
+                    const placeholder = document.createElement('span');
+                    placeholder.className = 'placeholder-text';
+                    placeholder.textContent = data.text;
+                    container.appendChild(placeholder);
+                    
+                    // Create Image Element
+                    const img = document.createElement('img');
+                    img.src = data.src;
+                    img.alt = data.alt;
+                    // Removed the redundant onerror since the source is a reliable placeholder URL.
+
+                    // Set first image as active
+                    if (index === 0) {
+                        img.classList.add('active');
+                    }
+                    container.appendChild(img);
+                });
+                
+                const images = container.querySelectorAll('img');
+
+                // 1b. Start cycling for carousel items
+                if (images.length > 1) {
+                    const cycleImages = () => {
+                        // Fade out current image
+                        images[currentIndex].classList.remove('active');
+                        
+                        // Calculate next index
+                        currentIndex = (currentIndex + 1) % images.length;
+                        
+                        // Fade in next image
+                        images[currentIndex].classList.add('active');
+                    };
+
+                    // Start cycling every 4 seconds
+                    setInterval(cycleImages, 4000);
+                }
+            };
+            
+            // Initialize all carousel items
+            carouselItems.forEach(initCarousel);
+
+
+            // --- 2. Floating Element / Parallax Logic for Header ---
+            const floatingElements = document.querySelectorAll('.floating-element');
+            const header = document.getElementById('mainHeader');
+
+            if (header) {
+                header.addEventListener('mousemove', (e) => {
+                    const rect = header.getBoundingClientRect();
+                    const centerX = rect.left + rect.width / 2;
+                    const centerY = rect.top + rect.height / 2;
+                    const offsetX = e.clientX - centerX;
+                    const offsetY = e.clientY - centerY;
+
+                    floatingElements.forEach(el => {
+                        const speed = el.getAttribute('data-speed') || 5;
+                        const maxMovement = 15; 
+                        
+                        const translateX = (offsetX * speed / 2000) * maxMovement;
+                        const translateY = (offsetY * speed / 2000) * maxMovement;
+
+                        el.style.transform = `translate(${translateX}px, ${translateY}px)`;
+                    });
+                });
+            }
+            
+            // --- 3. Profile Card Tilt Effect ---
+            const profileCard = document.getElementById('profileCard');
+            if (profileCard) {
+                profileCard.addEventListener('mousemove', (e) => {
+                    const rect = profileCard.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const middleX = rect.width / 2;
+                    const middleY = rect.height / 2;
+                    
+                    const rotateY = ((x - middleX) / middleX) * -3; 
+                    const rotateX = ((y - middleY) / middleY) * 3;
+                    
+                    const moveX = ((x - middleX) / middleX) * 5;
+                    const moveY = ((y - middleY) / middleY) * 5;
+
+                    profileCard.style.transform = `rotate(0deg) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translate(${moveX}px, ${moveY}px)`;
+                });
+
+                profileCard.addEventListener('mouseleave', () => {
+                    profileCard.style.transform = 'rotate(-3deg)';
+                });
+            }
+        });
+    </script>
 </body>
-
 </html>
+
